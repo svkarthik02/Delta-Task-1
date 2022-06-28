@@ -1,0 +1,494 @@
+<html>  
+  <head>  
+   <meta charset="UTF-8">  
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+   <meta name="veiwport" content="width=device-width,initial-scale=1.0">  
+   <link rel="stylesheet" href="6x6_N.css">  
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&amp;subset=Latin">  
+  <style type="text/css" id="dcoder_stylesheet">html  
+ { 
+   box-sizing: border-box; 
+ } 
+ .scores{ 
+  position: absolute; 
+  right: 35%; 
+  text-decoration: none; 
+  outline: none; 
+  cursor: pointer; 
+  font-weight: 600; 
+  border-radius: 5px; 
+  padding: 12px 24px; 
+  border: none; 
+  color: #fff; 
+  background: #ff5000; 
+  line-height: 1.15; 
+  font-size: 18px; 
+               
+   
+ } 
+ .main{ 
+   position: absolute; 
+  right:55%; 
+  text-decoration: none; 
+  outline: none; 
+  cursor: pointer; 
+  font-weight: 600; 
+  border-radius: 6px; 
+  padding: 12px 24px; 
+  border: none; 
+  color: #000021; 
+  background:#66ffff; 
+  line-height: 1.15; 
+  font-size: 18px; 
+  background-color:none; 
+                  
+ } 
+ .heading  
+ {font-family: Rockwell Extra Bold,Rockwell Bold,monospace;  
+  position: absolute; 
+  top: 10%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  text-align: center; 
+  color: #fff; 
+  background-color: #3366cc; 
+  outline: none; 
+  font-weight: 600; 
+  border-radius: 10px; 
+  padding: 12px 24px; 
+  border: none; 
+  background:#3366cc; 
+  line-height: 1.15; 
+  font-size: 3em; 
+ } 
+ .info-section  
+ {font-family: Rockwell Extra Bold,Rockwell Bold,monospace;  
+  position: absolute; 
+  top: 110%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  font-size:40px; 
+  text-align: center; 
+  color: #fff; 
+  background-color: #3366cc; 
+  outline: none; 
+  font-weight: 600; 
+  border-radius: 10px; 
+  padding: 12px 24px; 
+  border: none; 
+  background:#3366cc; 
+  line-height: 1.15; 
+  text-align: center; 
+ } 
+  
+ .display{ 
+  font-family: Rockwell Extra Bold,Rockwell Bold,monospace;  
+  position: absolute; 
+  top: 20%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  font-size:40px; 
+  text-align: center; 
+  color: #fff; 
+  background-color: #3366cc; 
+  outline: none; 
+  font-weight: 600; 
+  border-radius: 10px; 
+  padding: 12px 24px; 
+  border: none; 
+  background:#3366cc; 
+  line-height: 1.15; 
+   
+    
+    
+ } 
+  
+ body  
+ { 
+   background-color:#66ff66; 
+   display: flex; 
+   justify-content:center; 
+   font-family: 'Rubik',sans-serif; 
+    
+ } 
+  
+ .game { 
+   position: absolute; 
+   top: 50%; 
+   left: 50%; 
+   transform: translate(-50%, -50%); 
+    
+ } 
+  
+ .hidden  
+ { 
+   display: none !important; 
+ } 
+  
+ header  
+ { 
+   text-align: center; 
+   font-size: 18px; 
+ } 
+  
+  
+  
+ .tile-box  
+ { 
+   display: grid; 
+   grid-template-rows: 120px 120px 120px 120px 120px 120px; 
+   grid-template-columns: 120px 120px 120px 120px 120px 120px;; 
+   grid-gap:7px; 
+   position: relative; 
+   margin-top: 30px; 
+   margin-bottom: 40px; 
+ } 
+    
+ .unclickable  
+ { 
+   pointer-events: none; 
+ } 
+  
+ .tile 
+  { 
+  transition: 0.15s; 
+   background-color:#f36355; 
+   border-radius:10px; 
+   } 
+  
+  
+ .tile-r1c1:active, 
+ .tile-r1c1.activated, 
+ .tile-r1c2:active, 
+ .tile-r1c2.activated, 
+ .tile-r1c3:active, 
+ .tile-r1c3.activated, 
+ .tile-r1c4:active, 
+ .tile-r1c4.activated, 
+ .tile-r1c5:active, 
+ .tile-r1c5.activated, 
+ .tile-r1c6:active, 
+ .tile-r1c6.activated, 
+ .tile-r2c1:active, 
+ .tile-r2c1.activated, 
+ .tile-r2c2:active, 
+ .tile-r2c2.activated, 
+ .tile-r2c3:active, 
+ .tile-r2c3.activated, 
+ .tile-r2c4:active, 
+ .tile-r2c4.activated, 
+ .tile-r2c5:active, 
+ .tile-r2c5.activated, 
+ .tile-r2c6:active, 
+ .tile-r2c6.activated, 
+ .tile-r3c1:active, 
+ .tile-r3c1.activated, 
+ .tile-r3c2:active, 
+ .tile-r3c2.activated, 
+ .tile-r3c3:active, 
+ .tile-r3c3.activated, 
+ .tile-r3c4:active, 
+ .tile-r3c4.activated, 
+ .tile-r3c5:active, 
+ .tile-r3c5.activated, 
+ .tile-r3c6:active, 
+ .tile-r3c6.activated, 
+ .tile-r4c1:active, 
+ .tile-r4c1.activated, 
+ .tile-r4c2:active, 
+ .tile-r4c2.activated, 
+ .tile-r4c3:active, 
+ .tile-r4c3.activated, 
+ .tile-r4c4:active, 
+ .tile-r4c4.activated, 
+ .tile-r4c5:active, 
+ .tile-r4c5.activated, 
+ .tile-r4c6:active, 
+ .tile-r4c6.activated, 
+ .tile-r5c1:active, 
+ .tile-r5c1.activated, 
+ .tile-r5c2:active, 
+ .tile-r5c2.activated, 
+ .tile-r5c3:active, 
+ .tile-r5c3.activated, 
+ .tile-r5c4:active, 
+ .tile-r5c4.activated, 
+ .tile-r5c5:active, 
+ .tile-r5c5.activated, 
+ .tile-r5c6:active, 
+ .tile-r5c6.activated, 
+ .tile-r6c1:active, 
+ .tile-r6c1.activated, 
+ .tile-r6c2:active, 
+ .tile-r6c2.activated, 
+ .tile-r6c3:active, 
+ .tile-r6c3.activated, 
+ .tile-r6c4:active, 
+ .tile-r6c4.activated, 
+ .tile-r6c5:active, 
+ .tile-r6c5.activated, 
+ .tile-r6c6:active, 
+ .tile-r6c6.activated 
+  
+ {  
+  background-color: #00a4ed; 
+ border-radius:10px; 
+ transition:100; 
+ } 
+  
+ .start-button  
+ { 
+  display: inline-block; 
+  height: 38px; 
+  text-align: center; 
+  font-size: 14px; 
+  letter-spacing: 0.2rem; 
+  font-size:40px; 
+  text-align: center; 
+  color: #fff; 
+  background-color: #3366cc; 
+  outline: none; 
+  font-weight: 600; 
+  border-radius: 10px; 
+  padding: 0px 24px; 
+  border: none; 
+  background:#3366cc; 
+ } 
+  
+ .start-button:hover  
+ { 
+   color: #333; 
+   border-color: #888; 
+   outline: 0; 
+ } 
+  
+ .info  
+ { 
+   font-size: 30px; 
+ }</style></head>  
+  <body>  
+   <div class="display"> 
+     PIANO TILES GAME  
+   </div> 
+    
+   <div> <a href="index.html"><button class="main">Play Again</button></a>  
+   </div>  
+   <div> <a href="MAX_LEVEL.html"><button class="scores">Check Scores</button></a>  
+   </div>  
+   <div class="heading js-heading"> 
+     All The Best!  
+   </div>  
+   <header class="game">  
+    <section class="tile-box js-box unclickable">  
+     <div class="tile tile-r1c1" data-tile="r1c1"></div>  
+     <div class="tile tile-r1c2" data-tile="r1c2"></div>  
+     <div class="tile tile-r1c3" data-tile="r1c3"></div>  
+     <div class="tile tile-r1c4" data-tile="r1c4"></div>  
+     <div class="tile tile-r1c5" data-tile="r1c5"></div>  
+     <div class="tile tile-r1c6" data-tile="r1c6"></div>  
+     <div class="tile tile-r2c1" data-tile="r2c1"></div>  
+     <div class="tile tile-r2c2" data-tile="r2c2"></div>  
+     <div class="tile tile-r2c3" data-tile="r2c3"></div>  
+     <div class="tile tile-r2c4" data-tile="r2c4"></div>  
+     <div class="tile tile-r2c5" data-tile="r2c5"></div>  
+     <div class="tile tile-r2c6" data-tile="r2c6"></div>  
+     <div class="tile tile-r3c1" data-tile="r3c1"></div>  
+     <div class="tile tile-r3c2" data-tile="r3c2"></div>  
+     <div class="tile tile-r3c3" data-tile="r3c3"></div>  
+     <div class="tile tile-r3c4" data-tile="r3c4"></div>  
+     <div class="tile tile-r3c5" data-tile="r3c5"></div>  
+     <div class="tile tile-r3c6" data-tile="r3c6"></div>  
+     <div class="tile tile-r4c1" data-tile="r4c1"></div>  
+     <div class="tile tile-r4c2" data-tile="r4c2"></div>  
+     <div class="tile tile-r4c3" data-tile="r4c3"></div>  
+     <div class="tile tile-r4c4" data-tile="r4c4"></div>  
+     <div class="tile tile-r4c5" data-tile="r4c5"></div>  
+     <div class="tile tile-r4c6" data-tile="r4c6"></div>  
+     <div class="tile tile-r5c1" data-tile="r5c1"></div>  
+     <div class="tile tile-r5c2" data-tile="r5c2"></div>  
+     <div class="tile tile-r5c3" data-tile="r5c3"></div>  
+     <div class="tile tile-r5c4" data-tile="r5c4"></div>  
+     <div class="tile tile-r5c5" data-tile="r5c5"></div>  
+     <div class="tile tile-r5c6" data-tile="r5c6"></div>  
+     <div class="tile tile-r6c1" data-tile="r6c1"></div>  
+     <div class="tile tile-r6c2" data-tile="r6c2"></div>  
+     <div class="tile tile-r6c3" data-tile="r6c3"></div>  
+     <div class="tile tile-r6c4" data-tile="r6c4"></div>  
+     <div class="tile tile-r6c5" data-tile="r6c5"></div>  
+     <div class="tile tile-r6c6" data-tile="r6c6"></div>  
+    </section>  
+    <div class="info-section"> <button class="start-button js-start">Click to Play</button> <span class="info js-info hidden"></span>  
+    </div>  
+   </header>  
+   <script src="6x6_N.js"></script>  
+   
+ <script type="text/javascript" id="dcoder_script">let computer=[],human=[],level=0; 
+ tiles=['r1c1', 'r1c2', 'r1c3', 'r1c4','r1c5','r1c6','r2c1','r2c2','r2c3','r2c4','r2c5','r2c6','r3c1','r3c2','r3c3','r3c4','r3c5','r3c6','r4c1','r4c2','r4c3','r4c4','r4c5','r4c6','r5c1','r5c2','r5c3','r5c4','r5c5','r5c6','r6c1','r6c2','r6c3','r6c4','r6c5','r6c6']; 
+ temp=new Array(36).fill(0); 
+ seqflag=new Array(36).fill(0); 
+ const start=document.querySelector('.js-start'); 
+ start.addEventListener('click',startGame); 
+ const info=document.querySelector('.js-info'); 
+ const heading=document.querySelector('.js-heading'); 
+ const tileBox=document.querySelector('.js-box'); 
+ const display=document.querySelector('.display'); 
+ const highscore=document.querySelector('.highscores'); 
+ function startGame(){ 
+    
+  
+  Name=prompt("Please Enter your name"); 
+  number=Math.floor(Math.random()*100000000000);; 
+  Guest="Guest_User_"+String(number); 
+   
+   console.log(Guest); 
+    
+   
+  console.log("Your name is",Name); 
+  guest=false; 
+ letter=false; 
+ if (Name=="null" || Name==null) Name=Guest; 
+ else if(Name.length==0) 
+ Name=Guest; 
+ else{  
+  for(i=0;i<Name.length;i++) 
+ if(Name[i]>=65 && Name[i]<=90||Name[i]>=97 && Name[i]<=122||Name[i]>=48 && Name[i]<=57) 
+ {letter=true; continue;} 
+ else if(Name[i]=="\n")guest=true;  
+ len_name=Name.length; 
+   
+  
+  if(guest)Name=Guest; 
+    
+ }  
+   
+ rem=""; 
+ uiu=""; 
+ if(Object.keys(localStorage).includes(Name) && Name!="Guest_User") 
+ {rem="Again"; uiu=" Try to Play better this time!";} 
+ comma=","; 
+ comma1=""; 
+ if(rem=="") 
+ comma1="!"; 
+  
+ display.textContent="Welcome "+rem+comma+Name+comma1+uiu;   
+ console.log("Game started"); 
+ start.classList.add('hidden'); 
+ info.classList.remove('hidden'); 
+ info.textContent="Computer's Turn"; 
+ nextRound(); 
+ } 
+  
+ function nextRound(){ 
+ if(level==36){ 
+ var names=Object.keys(localStorage); 
+  local=level*10 
+   localStorage.setItem(Name,local); 
+ console.log("Win!"); 
+ temp=new Array(36).fill(0);} 
+ level+=1; 
+ tileBox.classList.add('unclickable'); 
+ info.textContent="Computer's Turn"; 
+ heading.textContent = `Level ${level} of 36\nCURR_SCORE:${level*10 - 10}`; 
+ const next = [...computer]; 
+ next.push(nextStep()); 
+ computer=[...next]; 
+ playRound(next); 
+ setTimeout(()=>{humanTurn(level);}, 
+ level * 1000+500); 
+ } 
+  
+ function nextStep(){ 
+ console.log("Returning random\nLevel ",level,"Starting..."); 
+ while(true){ 
+  ran_index=Math.floor(Math.random()*tiles.length); 
+ if(seqflag[ran_index]==0){seqflag[ran_index]=1;break;}} 
+ console.log(tiles[ran_index]); 
+ return tiles[ran_index]; 
+ } 
+  
+ function playRound(next){ 
+   next.forEach((t, index) => { 
+     setTimeout(() => { 
+       activateTile(t); 
+     }, (index+1)*600); 
+   }); 
+ } 
+  
+ function activateTile(t){ 
+   console.log("Tiles Glowing"); 
+ const tile = document.querySelector(`[data-tile='${t}']`); 
+ tile.classList.add('activated'); 
+ setTimeout(()=>{tile.classList.remove('activated');},300); 
+ } 
+  
+ function humanTurn(level) { 
+ temp = new Array(36).fill(0); 
+ console.log("Your turn"); 
+ tileBox.classList.remove('unclickable'); 
+ info.textContent=`Your turn`; 
+ } 
+  
+ tileBox.addEventListener('click',event =>{ 
+  const {tile}=event.target.dataset; 
+ console.log("i am",tile); 
+   if (tile) handleClick(tile); 
+ }); 
+  
+ function handleClick(tile){ 
+   console.log("inside handleclick"); 
+    
+    
+   human.push(tile); 
+    
+    
+   a1=tiles.indexOf(tile); 
+   flag=true; 
+   if(temp[a1]==1) flag=false; else temp[a1]=1;  
+   if(seqflag[a1]!=temp[a1]) flag=false; 
+   if (!flag){ 
+      var names=Object.keys(localStorage); 
+   local=level*10-10; 
+   if(names.includes(Name)) 
+ { var value=localStorage.getItem(Name); 
+   if(local>value) 
+   localStorage.setItem(Name,local); 
+    
+   ans=Math.max(local,value); 
+  
+    
+   } 
+  else{ 
+  localStorage.setItem(Name,local);} 
+      
+ resetGame(`Better luck Next Time! Game over, you pressed the wrong tile/repeated tile,Your Score is ${10*level-10} `);  
+   //info.textContent="Click to Play Again"; 
+ ans=Math.max(level*10,localStorage.getItem(Name)); 
+ //if(ans==local)  
+ //display.textContent="Congrats U improved Yourself!Hope u enjoyed the Game!"; 
+ //else 
+ if(ans==350) 
+ display.textContent="You really have very Shard Mind GG!,Try once but this time with timer"; 
+ else 
+ display.textContent="Game Over!Hope u enjoyed the Game!"; 
+ heading.textContent = `${Name}'s High score:${ans} and This time score:${local}`; 
+     console.log('You has pressed incorrect tile/ repeated tile henceGame over!'); 
+     return;} 
+   if (human.length==computer.length) { 
+    
+ //info.textContent="Click to Play Again"; 
+     
+     if (human.length==36) { 
+       resetGame('nothing'); 
+       return;}human=[]; 
+     setTimeout(() => {nextRound();},1000);return;} 
+     info.textContent=`Your turn`; 
+ } 
+  
+ function resetGame(text){ 
+ //alert(text); 
+ seqflag=new Array(36).fill(0); 
+ computer=[];human=[]; 
+ level=0; 
+ start.classList.remove('hidden');  
+ info.classList.add('hidden'); 
+ tileBox.classList.add('unclickable');}</script></body></html>
