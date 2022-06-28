@@ -3,7 +3,7 @@
   <meta charset="UTF-8"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
   <meta name="veiwport" content="width=device-width,initial-scale=1.0"> 
-  <link rel="stylesheet" href="MAX_LEVEL.css"> 
+  <link rel="stylesheet" href="normal.css"> 
  <style type="text/css" id="dcoder_stylesheet">.button{
   color:white;
   border-width:0px;
@@ -22,7 +22,7 @@
     </ol> 
    </div> 
   </div> 
-  <script src="MAX_LEVEL.js"></script> 
+  <script src="normal.js"></script> 
  
 <script type="text/javascript" id="dcoder_script">function CompareByScore(First,Second){ 
  if(First[0]>Second[0]) 
@@ -33,8 +33,7 @@
  }  
   
  names=Object.keys(localStorage); 
- max_level_name_pair=[];// will used for mapping name and respected score  
-  
+ max_level_name_pair=[]; 
  for(i=0;i<names.length;i++){ 
  list=[localStorage.getItem(names[i]),names[i]];     
  max_level_name_pair.push(list); 
